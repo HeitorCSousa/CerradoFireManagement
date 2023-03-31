@@ -10,7 +10,7 @@ head(data.rural)
 # Analytical Hierarchical Process -----------------------------------------
 
 #Select only variables related to the AHP
-ahp.spec <- data.spec[,c(18:51)]
+ahp.spec <- data.spec[,c(17:50)]
 ahp.rural <- data.rural[,c(35:68)]
 
 #Standardize to Saaty scale (-5 to 5), 1 = equal importance
@@ -434,8 +434,8 @@ data.spec$Income <- factor(data.spec$Income, levels = c("R$501,00-R$1.000,00", "
 data.spec$Time_Occupation <- factor(data.spec$Time_Occupation, levels = c("Menos_de_1_ano", "Entre_1_e_2_anos", "Entre_3_e_5_anos", "Entre_6_e_10_anos", "Mais_de_10_anos"))
 
 
-data.test.spec <- data.spec[,-c(1:3,18:51)]
-data.test.spec[,-c(15,16,19,20,22,24,25)] <- lapply(data.test.spec[,-c(15,16,19,20,22,24,25)], as.integer)
+data.test.spec <- data.spec[,-c(1:2,17:50)]
+data.test.spec[,-c(14,15,18,19,21,23,24)] <- lapply(data.test.spec[,-c(14,15,18,19,21,23,24)], as.integer)
 data.test.spec <- cbind(data.test.spec, 
                          canned.main.eigen$indpref[canned.main.eigen$indpref$cID=="Specialist",c(1:5)],
                          canned.fire.eigen$indpref[canned.main.eigen$indpref$cID=="Specialist",c(2:9)])
